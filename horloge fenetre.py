@@ -63,7 +63,8 @@ def go_home():
         mixer.init()
         sound = mixer.Sound("easter_egg.mp3")
         sound.play()
-
+        go_home_counter = 0
+        
     #timer
     bouton_seconde_timer.grid_remove()
     bouton_seconde_10_timer.grid_remove()
@@ -527,7 +528,7 @@ def time_sup_alarm():
         minute_alarm = 0
         hour_alarm += 1
     if hour_alarm >= 24:
-        hour_alarm = 24
+        hour_alarm = 0
 
 def time_inf_alarm():
     global minute_alarm, hour_alarm
@@ -603,7 +604,7 @@ def run_alarm_false():
 def alarm():
     global run_alarm
     time_now_alarm = datetime.now().replace(second=0,microsecond=0)
-    if time_now_alarm == time_alarm0 or time_now_alarm == time_alarm1 or time_now_alarm == time_alarm2 or time_now_alarm == time_alarm3 or time_now_alarm == time_alarm4 or time_now_alarm == time_alarm5 or time_now_alarm == time_alarm6 and not run_alarm:
+    if (time_now_alarm == time_alarm0 or time_now_alarm == time_alarm1 or time_now_alarm == time_alarm2 or time_now_alarm == time_alarm3 or time_now_alarm == time_alarm4 or time_now_alarm == time_alarm5 or time_now_alarm == time_alarm6) and not run_alarm:
         mixer.init()
         sound = mixer.Sound("alarm.mp3")
         sound.play()
